@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    height: 150px;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin:0 0 0 0;
+}
+
+td {
+    height: 55px;
+    vertical-align: bottom;
+}
+
+
+#tab {
+margin:20px 125px 0 0;
+
+}
+table#tab tr:nth-child(odd) {
+    background-color: #eee;
+}
+table#tab tr:nth-child(even) {
+   background-color:#fff;
+
+}
+
+#piechart{float:right;
+margin:20px 70px 0 0;}
+
+
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color:#fff;
+}
+table#t01 th {
+    background-color: rgba(60, 106, 157, 0.93);
+    color: white;
+}
+.size {font-size:30px;}
+
+
+h1 { float: right;}
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<p id="demo" style="float:right;"></p>
+
+<script>
+document.getElementById("demo").innerHTML =Date()
+
+
+
+</script>
+
+<br>
+<br>
+<table align="left"  id="t01">
+  <tr>
+    <th>People involved</th>
+    <th>Payment After Splitting/$</th>
+    <th>Cost Per Person/%</th>
+    <th>Max Cap Set by Recipient/%</th>
+    <th>Amount Paid by Recipient/$</th>
+  </tr>
+  <tr>
+    <td><a href="http://localhost:63342/Library/templates/includes/IndividualSummary.html?_ijt=9m2devvnuscich6gvbv57eqqnr">Peter</a></td>
+    <td style="width:250px">$144</td>
+    <td>20%</td>
+    <td style="">20%</td>
+    <td> $144</td>
+  </tr>
+  <tr>
+      <td><a href="http://localhost:63342/Library/templates/includes/IndividualSummary.html?_ijt=9m2devvnuscich6gvbv57eqqnr">Lois</a></td>
+    <td>$144</td>
+    <td>20%</td>
+       <td>15%</td>
+    <td >$108</td>
+  </tr>
+  <tr>
+      <td><a href="http://localhost:63342/Library/templates/includes/IndividualSummary.html?_ijt=9m2devvnuscich6gvbv57eqqnr">Joe</a></td>
+    <td>$144</td>
+    <td>20%</td>
+       <td>10%</td>
+    <td>$72</td>
+  </tr>
+  <tr>
+      <td><a href="http://localhost:63342/Library/templates/includes/IndividualSummary.html?_ijt=9m2devvnuscich6gvbv57eqqnr">Cleveland</a></td>
+    <td>$144</td>
+    <td>20%</td>
+       <td>-</td>
+    <td>$0.00</td>
+  </tr>
+
+</table>
+
+&nbsp;
+<table id="tab" style="width:50.4% ">
+  <tr>
+    <th>People who paid the least:</th>
+    <td style="width:33.6%" >Joe</td>
+  </tr>
+  <tr>
+    <th rowspan="2">People who declined:</th>
+    <td>Cleveland</td>
+  </tr>
+  <tr>
+    <td>-</td>
+  </tr>
+    <tr><th class="change">Total Amount Paid by Recipient</th><td>$324</td></tr>
+<img id="piechart" src="file:///C:/Users/weiku/Downloads/meta-chart%20(5).svg  " alt="Smiley face" width="500" height="362">
+    <tr><th class="change">Total Amount Ought to Pay:</th><td>$144</td></tr>
+  <tr><th class="change"style="font-size:40px;">Total Amount Paid:</th><td style="font-size: 30px;">$396</td></tr>
+
+</table>
+
+</body>
+</html>

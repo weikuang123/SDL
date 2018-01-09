@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends 'layout.html' %}
+
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+    <h1>New Publication</h1>
+    <script>
+        $(document).ready(function () {
+            var publicationType = $('input[name=pubtype]:checked').val();
+
+            if (publicationType == 'sbook') {
+                $('#book').show();
+                $('#magazine').hide();
+            } else {
+                $('#magazine').show();
+                $('#book').hide();
+            }
+        });
+    </script>
+    <form method="POST" action="">
+
+        <div class="form-group">
+            <div class="form-row">
+                {{ render_field(form.pubtype, class_="radio-inline") }}
+            </div>
+        </div>
+        <div class="form-group">
+            {{ render_field(form.title, class_="form-control") }}
+        </div>
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    {{ render_field(form.category, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ render_field(form.publisher, class_="form-control") }}
+                </div>
+                <div class="form-group col-md-4">
+                    {{ render_field(form.status, class_="form-control") }}
+                </div>
+
+            </div>
+        </div>
+        <div id="book">
+            <div class="form-group">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        {{ render_field(form.isbn, class_="form-control") }}
+
+                    </div>
+                    <div class="form-group col-md-6">
+                        {{ render_field(form.author, class_="form-control") }}
+
+                    </div>
+                </div>
+            </div>
+           <div class="form-group">
+                {{ render_field(form.synopsis, class_="form-control") }}
+            </div>
+        </div>
+        <div id="magazine">
+            <div class="form-group">
+                {{ render_field(form.frequency, class_="radio-inline") }}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-row">
+                <div class="form-group col-md-11">
+                </div>
+                <div class="form-group col-md-1">
+                    <input type="submit" value="Update" class="btn btn-info"/>
+                </div>
+            </div>
+        </div>
+
+    </form>
+{% endblock %}
+
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>View All Publications</h1>
+    <br/>
+    <hr/>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Type Of Publication</th>
+            <th>Status</th>
+            <th>Category</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Harry Potter and the Deathly Hallows</td>
+            <td>Book</td>
+            <td>For Borrowing</td>
+            <td>Fantasy</td>
+            <td><a href="#">View</a></td>
+            <td><a href="/update">Update</a></td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+        <tr>
+            <th scope="row">2</th>
+            <td>Harry Potter and the Half-Blood Prince</td>
+            <td>Book</td>
+            <td>For Borrowing</td>
+            <td>Fantasy</td>
+            <td><a href="#">View</a></td>
+            <td><a href="/update">Update</a></td>
+            <td><a href="#">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}
+
+</body>
+</html>
